@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "generate-search": "tsx scripts/generate-search-index.ts",
+    "prebuild": "npm run generate-search"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
