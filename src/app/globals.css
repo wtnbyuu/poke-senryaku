@@ -2,6 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@500;700;800&display=swap');
 @plugin "@tailwindcss/typography";
 
+html {
+  color-scheme: light only;
+}
+
+@media (prefers-color-scheme: dark) {
+  html { color-scheme: light only; }
+  body { background-color: var(--bg) !important; color: var(--text) !important; }
+  .prose { --tw-prose-body: #334155 !important; --tw-prose-headings: var(--text) !important; --tw-prose-code: #0f172a !important; --tw-prose-pre-bg: var(--text) !important; --tw-prose-pre-code: #f8f8f2 !important; }
+}
+
 :root {
   --bg: #f6f8fb;
   --surface: #ffffff;
