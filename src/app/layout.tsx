@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Sidebar } from '@/components/Sidebar'
 import { getAllWikiMeta } from '@/lib/wiki'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 
 export const metadata: Metadata = {
   title: 'ポケ戦略 Wiki',
@@ -13,6 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="ja">
+      <head>
+        {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
+      </head>
       <body>
         <header style={{ backgroundColor: 'var(--color-primary)' }} className="text-white px-4 py-3 flex items-center justify-between sticky top-0 z-40">
           <a href="/" className="font-bold text-xl tracking-wide">
