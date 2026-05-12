@@ -20,13 +20,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const pages = getAllWikiMeta()
 
   return (
-    <html lang="ja">
+    <html lang="ja" data-theme="light" style={{ colorScheme: 'light' }}>
       <head>
         {process.env.NEXT_PUBLIC_GA_ID && (
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
         )}
       </head>
-      <body>
+      <body style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
         <header className="sticky top-0 z-40 border-b" style={{ borderColor: 'var(--line)', background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(12px)' }}>
           <div style={{ width: 'min(1180px, calc(100% - 32px))', margin: '0 auto' }} className="flex items-center justify-between py-3">
             <a href="/" className="font-black text-xl tracking-tight" style={{ color: 'var(--red)' }}>

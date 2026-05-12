@@ -2,14 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@500;700;800&display=swap');
 @plugin "@tailwindcss/typography";
 
-html {
-  color-scheme: light only;
+@custom-variant dark (&:not(*));
+
+html, html[data-theme="light"] {
+  color-scheme: light only !important;
 }
 
 @media (prefers-color-scheme: dark) {
-  html { color-scheme: light only; }
-  body { background-color: var(--bg) !important; color: var(--text) !important; }
-  .prose { --tw-prose-body: #334155 !important; --tw-prose-headings: var(--text) !important; --tw-prose-code: #0f172a !important; --tw-prose-pre-bg: var(--text) !important; --tw-prose-pre-code: #f8f8f2 !important; }
+  html, body { color-scheme: light only !important; }
+  body { background-color: #f6f8fb !important; color: #0f172a !important; }
+  .prose, .article, .wiki-content {
+    --tw-prose-body: #334155 !important;
+    --tw-prose-headings: #0f172a !important;
+    --tw-prose-links: #2563eb !important;
+    --tw-prose-code: #0f172a !important;
+    --tw-prose-pre-bg: #1a1a1a !important;
+    --tw-prose-pre-code: #f8f8f2 !important;
+    --tw-prose-quotes: #334155 !important;
+    --tw-prose-td-borders: #e2e8f0 !important;
+    --tw-prose-th-bg: #f8fafc !important;
+    color: #334155 !important;
+  }
+  .article code, .wiki-content code { background: #f1f5f9 !important; color: #0f172a !important; }
+  .article pre, .wiki-content pre { background: #1a1a1a !important; color: #f8f8f2 !important; }
+  .article pre code, .wiki-content pre code { background: transparent !important; color: #f8f8f2 !important; }
+  header { background: rgba(255,255,255,0.85) !important; }
+  .guide-card, .wall-card { background: #ffffff !important; color: #0f172a !important; }
+  input[type="text"] { background: #ffffff !important; color: #0f172a !important; }
 }
 
 :root {
