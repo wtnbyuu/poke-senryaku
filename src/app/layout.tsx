@@ -35,18 +35,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
 
-        <div style={{ width: 'min(1180px, calc(100% - 32px))', margin: '0 auto', display: 'grid', gridTemplateColumns: '260px 1fr', gap: '32px', alignItems: 'start' }} className="mt-6 hidden md:grid">
-          <Sidebar pages={pages} />
-          <main className="min-w-0">
-            {children}
-          </main>
-        </div>
-
-        <div className="md:hidden">
-          <Sidebar pages={pages} />
-          <main style={{ width: 'min(100% - 24px, 1120px)', margin: '0 auto' }} className="py-4">
-            {children}
-          </main>
+        <div style={{ width: 'min(1180px, calc(100% - 32px))', margin: '0 auto' }} className="mt-6">
+          <div className="md:grid" style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '32px', alignItems: 'start' }}>
+            <div className="hidden md:block">
+              <Sidebar pages={pages} />
+            </div>
+            <main className="min-w-0 pb-12">
+              {children}
+            </main>
+          </div>
+          <div className="md:hidden">
+            <Sidebar pages={pages} />
+          </div>
         </div>
       </body>
     </html>
