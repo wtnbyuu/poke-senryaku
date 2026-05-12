@@ -38,6 +38,11 @@ export function Sidebar({ pages }: { pages: PageMeta[] }) {
             )
           })}
         </ul>
+        <div className="mt-4 pt-4 border-t border-gray-700">
+          <Link href="/privacy" className="block py-1 px-2 text-xs text-gray-500 hover:text-gray-300">
+            プライバシーポリシー
+          </Link>
+        </div>
       </nav>
     </>
   )

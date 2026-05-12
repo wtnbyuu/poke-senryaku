@@ -3,6 +3,8 @@ import { getAllSlugs, getWikiPage } from '@/lib/wiki'
 import { WikiContent } from '@/components/WikiContent'
 import { GiscusComments } from '@/components/GiscusComments'
 import { ShareButtons } from '@/components/ShareButtons'
+import { AffiliateBooks } from '@/components/AffiliateBooks'
+import { AdSense } from '@/components/AdSense'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -52,6 +54,10 @@ export default async function WikiPage({ params }: { params: Promise<{ slug: str
       <article>
         <WikiContent html={page.contentHtml} />
 
+        {process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE && (
+          <AdSense slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE} />
+        )}
+
         <div className="flex justify-between mt-8 pt-4 border-t text-sm">
           {page.prevPage ? (
             <Link href={`/wiki/${page.prevPage.slug}`} className="text-red-600 hover:underline">
@@ -67,6 +73,7 @@ export default async function WikiPage({ params }: { params: Promise<{ slug: str
 
         <p className="text-xs text-gray-400 mt-4">最終更新: {page.lastUpdated}</p>
         <ShareButtons url={`https://poke-senryaku.com/wiki/${slug}`} title={page.title} />
+        <AffiliateBooks slug={slug} />
 
         <GiscusComments />
       </article>
