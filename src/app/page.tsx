@@ -1,11 +1,31 @@
+import type { Metadata } from 'next'
 import { getAllWikiMeta } from '@/lib/wiki'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'ポケ戦略 Wiki — ポケモン対戦ガチ勢に追いつくための完全ガイド',
+  description: 'タイプ相性・育成・構築・選出の基礎から、受けループ崩し・耐久調整・チャンピオンズ移行まで。ポケモン対戦を体系的に学べるWikiです。',
+  openGraph: {
+    title: 'ポケ戦略 Wiki',
+    description: 'ポケモン対戦ガチ勢に追いつくための完全ガイド',
+    url: 'https://poke-senryaku.com',
+    siteName: 'ポケ戦略 Wiki',
+    locale: 'ja_JP',
+    type: 'website',
+  },
+}
 
 export default function HomePage() {
   const pages = getAllWikiMeta()
 
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'ポケ戦略 Wiki',
+        url: 'https://poke-senryaku.com',
+      }) }} />
       <h1 style={{ color: 'var(--color-primary)' }} className="text-3xl font-bold mb-2">
         ⚔️ ポケ戦略 Wiki
       </h1>
