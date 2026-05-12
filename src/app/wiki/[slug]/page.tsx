@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getAllSlugs, getWikiPage } from '@/lib/wiki'
 import { WikiContent } from '@/components/WikiContent'
 import { GiscusComments } from '@/components/GiscusComments'
+import { ShareButtons } from '@/components/ShareButtons'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -65,6 +66,7 @@ export default async function WikiPage({ params }: { params: Promise<{ slug: str
         </div>
 
         <p className="text-xs text-gray-400 mt-4">最終更新: {page.lastUpdated}</p>
+        <ShareButtons url={`https://poke-senryaku.com/wiki/${slug}`} title={page.title} />
 
         <GiscusComments />
       </article>
